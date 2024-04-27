@@ -3,9 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style_global.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style_form.css">
     <title>formúlario</title>
 </head>
 <body>
+
+    <main>
+ <div class="container-xl container">
+<h1>Gerenciar Painel dos Paciente no Centro Cirúrgico</h1>
+    <form action="">
+  <div class="first-line">
+    <div>
+        <label for="nome">Nome Paciente:</label>
+        <input type="text" id="nome" class="form-control form-control-sm " placeholder="Nome do Pciente">
+
+    </div>
+
+   <div>
+    <label for="">Status:</label>
+    <select class="select form-control-sm container-lg">
+        <option value="">Selecione</option>
+        <option value="">Pré -Operatório</option>
+        <option value="">Operatóperad</option>
+        <option value="">Operação em adamento</option>
+    </select>
+   </div>
+    <div>
+    <label for="local">Local:</label>
+    <input type="text" name="local" id=""  class="form-control" placeholder="Sala/Quarto">
+    </div>
+  </div>
+
+
+  <div class="seconde-line">
+
+    <div>
+        <label for="">Inicio Prevísto:</label>
+    <input type="time" class="form-control" name="" id="">
+    </div>
+    <div>
+        <label for="">Inicio Cirugia:</label>
+    <input type="time" class="form-control" name="" id="">
+    </div>
+    <div>
+        <label for="">Fim da Cirugia:</label>
+    <input type="time" class="form-control" name="" id="">
+    </div>
+    <div>
+        <label for="">Saída Prevísto:</label>
+    <input type="time" class="form-control" name="" id="">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-secondary" >Novo</button>
+  <button type="submit" class="btn btn-primary">Grava</button>
+  <button type="submit" class="btn btn-danger">Apagar</button>
+   
+    </form>
+
+    <div class="container text-center">
+        <div class="row">
+          <div class="col-4">
+            <h5>Nome do Paciente</h5>
+            
+          </div>
+          <div class="col-3">
+           <h5> Status</h5>
+          </div>
+          <div class="col">
+           <h5> Inicio Previsto</h5>
+          </div>
+          <div class="col">
+           <h5> Início da Cirugia</h5>
+          </div>
+          <div class="col">
+            <h5>Fim da Cirugia</h5>
+          </div>
+          <div class="col">
+            <h5>Saída Prevista</h5>
+          </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-4">
+             JOÃOZINHO
+            </div>
+            <div class="col-3 bg-danger">
+              transferido (245)
+            </div>
+            <div class="col">
+              07:00
+            </div>
+            <div class="col">
+              07:23
+            </div>
+            <div class="col">
+              08:50
+            </div>
+            <div class="col">
+              10:30
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+             PEDRO SILVA
+            </div>
+            <div class="col-3  bg-primary-subtle border border-primary-subtle">
+              transferido (245)
+            </div>
+            <div class="col">
+              07:00
+            </div>
+            <div class="col">
+              07:23
+            </div>
+            <div class="col">
+              08:50
+            </div>
+            <div class="col">
+              10:30
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+             PEDRO SILVA
+            </div>
+            <div class="col-3  bg-warning ">
+              transferido (245)
+            </div>
+            <div class="col">
+              07:00
+            </div>
+            <div class="col">
+              07:23
+            </div>
+            <div class="col">
+              08:50
+            </div>
+            <div class="col">
+              10:30
+            </div>
+          </div>
+      </div>
+
+
+
+
+   <!-- <table class="table">
+    <thead>
+        <tr>
+            <th scope="col" class="cell">Nome do Paciente</th>
+            <th scope="col" class="cell">Status</th>
+            <th scope="col" class="cell">Inicio Previsto</th>
+            <th scope="col" class="cell">Início da Cirugia</th>
+            <th scope="col" class="cell">Fim da Cirugia</th>
+            <th scope="col" class="cell">Saída Prevista</th>
+          </tr>
+   
+    </thead>
+    <tbody>
+        <tr>
+            
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+    </tbody>
+   </table> -->
+    </div>
+    </main>
     
 </body>
 </html>
