@@ -7,13 +7,14 @@ body{
     align-items: center;
 }
 
-.container{
-    width: 100%;
-    max-width: 1350px;
-    background-color: #fff;
-    height: 300px;
-    padding: 16px;
-    height: auto;
+.conta{
+   background-color: #fff;
+   padding: 16px;
+   border-radius: 16px;
+   width: 100%;
+   max-width: 1650px;
+
+
 }
 .first-line{
     display: grid;
