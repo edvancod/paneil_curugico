@@ -21,7 +21,7 @@
                   </div>
                   <div class="col-md-4">
                     <label for="status" class="form-label">Status:</label>
-                    <select class="form-select" id="status " required>
+                    <select class="form-select" id="status" required>
                       <option value="">Selecione</option>
                       <option value="pre-operatório">Pré-Operatório</option>
                       <option value="operatório">Operatório</option>
@@ -98,6 +98,9 @@ const tbody = document.getElementById('tbody');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const pacienteNome = document.getElementById('nome').value;
+  const status = document.getElementById('status').value;
+  const local = document.getElementById('local').value;
+  const inicio = document.getElementById('inicio_previsto').value;
   const inicioCirurgia = document.getElementById('inicio_cirurgia').value;
   const fimCirurgia = document.getElementById('fim_cirurgia').value;
   const saidaPrevista = document.getElementById('saida_prevista').value;
@@ -105,6 +108,8 @@ form.addEventListener('submit', (e) => {
   const newRow = document.createElement('tr');
   newRow.innerHTML = `
     <td>${pacienteNome}</td>
+    <td>${status}(${local})</td>
+    <td>${inicio}</td>
     <td>${inicioCirurgia}</td>
     <td>${fimCirurgia}</td>
     <td>${saidaPrevista}</td>
