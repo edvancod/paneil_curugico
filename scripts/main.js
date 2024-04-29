@@ -30,3 +30,6 @@ document.getElementById('usuario').addEventListener('click', function () {
     const msg = document.getElementById('alerta');
     msg.style.display = 'none';
 });
+
+
+
