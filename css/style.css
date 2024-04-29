@@ -50,3 +50,9 @@ input[type=submit]:hover{
 #alerta{
     display: none;
 }
+
+@media (max-width: 430px) {
+    .container{
+        display: block;
+    }
+}
