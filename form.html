@@ -13,139 +13,69 @@
     <main>
         <div class=" conta">
             <h1 class="text-center">Gerenciar Painel dos Pacientes no Centro Cirúrgico</h1>
-            <form action="">
+            <form>
                 <div class="row">
-                    <div class="col-md-5">
-                        <label for="nome" class="form-label">Nome do Paciente:</label>
-                        <input type="text" id="nome" class="form-control" placeholder="Nome do Paciente">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="status" class="form-label">Status:</label>
-                        <select class="form-select">
-                            <option value="">Selecione</option>
-                            <option value="">Pré-Operatório</option>
-                            <option value="">Operatório</option>
-                            <option value="">Operação em Andamento</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="local" class="form-label">Local:</label>
-                        <input type="text" name="local" id="local" class="form-control" placeholder="Sala/Quarto">
-                    </div>
+                  <div class="col-md-4">
+                    <label for="nome" class="form-label">Nome do Paciente:</label>
+                    <input type="text" id="item" name="item" class="form-control" placeholder="Nome do Paciente" required>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="status" class="form-label">Status:</label>
+                    <select class="form-select" id="status" required>
+                      <option value="">Selecione</option>
+                      <option value="pre-operatório">Pré-Operatório</option>
+                      <option value="operatório">Operatório</option>
+                      <option value="em-andamento">Operação em Andamento</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="local" class="form-label">Local:</label>
+                    <input type="text" id="local" class="form-control" placeholder="Sala/Quarto" required>
+                  </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-3">
-                        <label for="inicio_previsto" class="form-label">Início Previsto:</label>
-                        <input type="time" class="form-control" id="inicio_previsto">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="inicio_cirurgia" class="form-label">Início Cirurgia:</label>
-                        <input type="time" class="form-control" id="inicio_cirurgia">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="fim_cirurgia" class="form-label">Fim da Cirurgia:</label>
-                        <input type="time" class="form-control" id="fim_cirurgia">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="saida_prevista" class="form-label">Saída Prevista:</label>
-                        <input type="time" class="form-control" id="saida_prevista">
-                    </div>
+                  <div class="col-md-3">
+                    <label for="inicio_previsto" class="form-label">Início Previsto:</label>
+                    <input type="time" id="inicio_previsto" class="form-control" required>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="inicio_cirurgia" class="form-label">Início Cirurgia:</label>
+                    <input type="time" id="inicio_cirurgia" class="form-control" required>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="fim_cirurgia" class="form-label">Fim da Cirurgia:</label>
+                    <input type="time" id="fim_cirurgia" class="form-control" required>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="saida_prevista" class="form-label">Saída Prevista:</label>
+                    <input type="time" id="saida_prevista" class="form-control" required>
+                  </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-secondary">Novo</button>
-                        <button type="submit" class="btn btn-primary">Gravar</button>
-                        <button type="submit" class="btn btn-danger">Apagar</button>
-                    </div>
+                  <div class="col-md-4">
+                    <button type="submit" id="bt-novo" class="btn btn-secondary">Novo</button>
+                    <button type="submit" id="bt-gravar" class="btn btn-primary">Gravar</button>
+                    <button type="submit" id="bt-apagar"  class="btn btn-danger">Apagar</button>
+                  </div>
                 </div>
-            </form>
-            <div class="container text-center mt-6">
-                <div class="row">
-                    <div class="col-3">
-                        <h5>Nome do Paciente</h5>
-                    </div>
-                    <div class="col-2 	">
-                        <h5>Status</h5>
-                    </div>
-                    <div class="col">
-                        <h5>Início Previsto</h5>
-                    </div>
-
-                    <div class="col">
-                        <h5>Início da Cirurgia</h5>
-                    </div>
-                    <div class="col">
-                        <h5>Fim da Cirurgia</h5>
-                    </div>
-                    <div class="col">
-                        <h5>Saída Prevista</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-3">
-                        JOÃOZINHO
-                    </div>
-                    <div class="col-2 bg-danger text-bg-danger">
-                        transferido (245)
-                    </div>
-                    <div class="col">
-                         08:00
-                    </div>
-                    <div class="col">
-                        07:21
-                    </div>
-                    <div class="col">
-                        08:50
-                    </div>
-                    <div class="col">
-                        10:30
-                    </div>
-                   
-                </div>
-                <div class="row">
-                    <div class="col-3">
-                        PEDRO SILVA
-                    </div>
-                    <div class="col-2 bg-primary-subtle ">
-                        transferido (276)
-                    </div>
-                    <div class="col">
-                        07:00
-                    </div>
-                    <div class="col">
-                        07:23
-                    </div>
-                    <div class="col">
-                        08:50
-                    </div>
-                    <div class="col">
-                        10:30
-                    </div>
-                    
-                </div>
-                <div class="row">
-                    <div class="col-3">
-                      CARLÃO PP SILVA
-                    </div>
-                    <div class="col-2 bg-warning">
-                        ALTA PARA CASA
-                         
-                    </div>
-                    <div class="col">
-                        08:00
-                    </div>
-                    <div class="col">
-                        07:50
-                    </div>
-                    <div class="col">
-                        09:50
-                    </div>
-                    <div class="col">
-                        12:30
-                    </div>
-                </div>
-            </div>
+              </form>
+              <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Nome do paciente
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+                        <td>senhor</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </main>
+
+    <script src="./form_main"></script>
 </body>
 </html>

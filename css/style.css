@@ -34,6 +34,9 @@ margin: 10px 0;
 border-radius: 5px;
 border: none;
 }
+#usuario{
+    background-color: #fff;
+}
 input[type=submit] {
     font-weight: bold;
     letter-spacing: 3px;
