@@ -1,0 +1,64 @@
+// form_main.js
+const form = document.querySelector('form');
+const tbody = document.querySelector('#tbody');
+
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const pacienteNome = document.getElementById('nome').value;
+  const inicioCirurgia = formData.get('inicio_cirurgia');
+  const fimCirurgia = formData.get('fim_cirurgia');
+  const saidaPrevista = formData.get('saida_prevista');
+
+  const newRow = document.createElement('tr');
+  newRow.innerHTML = `
+    <td>${pacienteNome}</td>
+    <td>${inicioCirurgia}</td>
+    <td>${fimCirurgia}</td>
+    <td>${saidaPrevista}</td>
+  `;
+  tbody.appendChild(newRow);
+});
+
+// // Add an event listener for the 'bt-novo' button to clear the form and set focus on the 'nome_paciente' input
+// document.getElementById('bt-novo').addEventListener('click', function() {
+//     document.getElementById('nome_paciente').value = '';
+//     document.getElementById('nome_paciente').focus();
+//     document.getElementById('inicio_cirurgia').value = '';
+//     document.getElementById('fim_cirurgia').value = '';
+//     document.getElementById('saida_prevista').value = '';
+//   });
+  
+//   // Add an event listener for the 'bt-gravar' button to validate and submit the form
+//   document.getElementById('bt-gravar').addEventListener('click', function() {
+//     // Validate the form fields
+//     if (document.getElementById('nome_paciente').value === '') {
+//       alert('Por favor, preencha o nome do paciente.');
+//       return;
+//     }
+//     if (document.getElementById('inicio_cirurgia').value === '') {
+//       alert('Por favor, preencha o início da cirurgia.');
+//       return;
+//     }
+//     if (document.getElementById('fim_cirurgia').value === '') {
+//       alert('Por favor, preencha o fim da cirurgia.');
+//       return;
+//     }
+//     if (document.getElementById('saida_prevista').value === '') {
+//       alert('Por favor, preencha a saída prevista.');
+//       return;
+//     }
+  
+//     // Submit the form
+//     // (You will need to implement the form submission logic here)
+//   });
+  
+//   // Add an event listener for the 'bt-apagar' button to confirm and delete the selected row
+//   document.getElementById('bt-apagar').addEventListener('click', function() {
+//     // Confirm the deletion
+//     if (confirm('Tem certeza que deseja apagar este registro?')) {
+//       // Delete the selected row
+//       // (You will need to implement the row deletion logic here)
+//     }
+//   });

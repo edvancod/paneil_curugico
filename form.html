@@ -13,15 +13,15 @@
     <main>
         <div class=" conta">
             <h1 class="text-center">Gerenciar Painel dos Pacientes no Centro Cirúrgico</h1>
-            <form>
+            <form id="myForm">
                 <div class="row">
                   <div class="col-md-4">
                     <label for="nome" class="form-label">Nome do Paciente:</label>
-                    <input type="text" id="item" name="item" class="form-control" placeholder="Nome do Paciente" required>
+                    <input type="text" id="nome" name="item" class="form-control" placeholder="Nome do Paciente" required>
                   </div>
                   <div class="col-md-4">
                     <label for="status" class="form-label">Status:</label>
-                    <select class="form-select" id="status" required>
+                    <select class="form-select" id="status " required>
                       <option value="">Selecione</option>
                       <option value="pre-operatório">Pré-Operatório</option>
                       <option value="operatório">Operatório</option>
@@ -62,20 +62,55 @@
               <table class="table">
                 <thead>
                     <tr>
-                        <th>
+                        <th class="col-4">
                             Nome do paciente
+                        </th>
+                        <th class="col-3">
+                            Status
+                        </th>
+                        <th>
+                          Inicio previsto
+                        </th>
+                        <th>
+                            Inicio da Cirúgia
+                        </th>
+                        <th>
+                            Fim da Cirurgia
+                        </th>
+                        <th>
+                            Saída Prevista
                         </th>
                     </tr>
                 </thead>
                 <tbody id="tbody">
                     <tr>
-                        <td>senhor</td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </main>
 
-    <script src="./form_main"></script>
+    <script >
+ const form = document.getElementById('myForm');
+const tbody = document.getElementById('tbody');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const pacienteNome = document.getElementById('nome').value;
+  const inicioCirurgia = document.getElementById('inicio_cirurgia').value;
+  const fimCirurgia = document.getElementById('fim_cirurgia').value;
+  const saidaPrevista = document.getElementById('saida_prevista').value;
+
+  const newRow = document.createElement('tr');
+  newRow.innerHTML = `
+    <td>${pacienteNome}</td>
+    <td>${inicioCirurgia}</td>
+    <td>${fimCirurgia}</td>
+    <td>${saidaPrevista}</td>
+  `;
+  tbody.appendChild(newRow);
+});
+    </script>
 </body>
 </html>
