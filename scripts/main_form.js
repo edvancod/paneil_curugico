@@ -13,9 +13,10 @@ btGravar.addEventListener('click', saveData);
 
 
 const statusColors = {
-  preOperatório: '#72b2e7',
-  operatorio: '#72e7ad',
-  emAndamento: '#dbe772'
+  
+  'Transferído': '#72b2e7',
+  'Em recuperação': '#72e7ad',
+  'Pré-Operatorio': '#dbe772'
 };
 
 
