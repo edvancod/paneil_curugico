@@ -70,10 +70,65 @@ function clearForm() {
 }
 
 function saveData() {
-  // Save data to a database or local storage
+  
 }
 
 
 function deleteRow(row) {
   row.remove();
 }
+
+async function getData() {
+    const response = await fetch("https://api.zerosheets.com/v1/dnu");
+    const data = await response.json();
+
+    // will return an array of objects with the _lineNumber
+    return data;
+}
+
+async function createRow(payload) {
+    /* Payload should be an object with the columns you want to create, example:
+    const payload = {
+        column1: "foo",
+        column2: "bar"
+    };
+    */
+    const response = await fetch("https://api.zerosheets.com/v1/dnu", {
+      method: "POST",
+      body: JSON.stringify(payload)
+    });
+    const data = await response.json();
+  
+    return data;
+}
+
+async function patchRow(lineNumber, payload) {
+    /* Payload should be an object with the columns you want to update, example:
+
+    const payload = {
+        foo: "bar"
+    };
+    */
+    const url = "https://api.zerosheets.com/v1/dnu/" + lineNumber;
+    const response = await fetch(url, {
+      method: "PATCH",
+      body: JSON.stringify(payload)
+    });
+    const data = await response.json();
+    
+    // will return an object of the new row plus the _lineNumber
+    return data;
+}
+
+async function deleteRow(lineNumber) {
+    const url = "https://api.zerosheets.com/v1/dnu/" + lineNumber; // lineNumber comes from the get request
+    await fetch(url, {
+        method: "DELETE"
+    });
+    // No response data is returned
+}
+
+getData().then(() => {
+    
+     saveData();
+  });
