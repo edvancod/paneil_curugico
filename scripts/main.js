@@ -19,7 +19,7 @@ document.getElementById('form').addEventListener('submit', function (e) {
     const senha = document.getElementById('senha').value;
     const msg = document.getElementById('alerta')
     if (usuario === 'senai' && senha === 'HRT2024') {
-        window.location.href = 'form.html';
+        window.location.href = 'gerenciador.html';
     } else {
         alert('Senha incorreta!');
         msg.style.display = 'block';
