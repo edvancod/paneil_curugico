@@ -4,7 +4,7 @@ const btNovo = document.getElementById('bt-novo');
 const btGravar = document.getElementById('bt-gravar');
 const btApagar = document.getElementById('bt-apagar');
 
-let lsItem = JSON.parse(localStorage.getItem('lsItem') || '[]');
+let lsItem = []
 
 const statusColors = {
   'Transferído': '#72b2e7',
@@ -18,12 +18,23 @@ const tpStatus = {
   Concluido: "text-bg-danger",
 };
 
-btNovo.addEventListener('click', limparForm);
+
+btNovo.addEventListener('click', novoForm);
 btGravar.addEventListener('click', gravar);
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 });
+
+
+function novoForm() {
+  const formulario = form.elements;
+  for (const fieldBack of formulario) {
+    fieldBack.value = '';
+  }
+}
+
+
 
 function gravar() {
   let inicioPrevisto = document.getElementById('inicio_previsto').value;
@@ -32,11 +43,11 @@ function gravar() {
   let saidaPrevista = document.getElementById('saida_prevista').value;
   let indice = document.getElementById("indice").value;
   let local = document.getElementById("local").value;
-  let item = document.getElementById("nome").value;
+  let nome = document.getElementById("nome").value;
   let status = document.getElementById("status").value;
-  if (item!= "" && status!= "") {
+  if (nome!= "" && status!= "") {
     let obj = {};
-    obj.nome = item;
+    obj.nome = nome;
     obj.status = status;
     obj.local = local;
     obj.inicioPrevisto = inicioPrevisto;
@@ -57,12 +68,7 @@ function gravar() {
   }
 }
 
-function limparForm() {
-  document.getElementById("indice").value = "";
-  document.getElementById("_lineNumber").value = "";
-  document.getElementById("item").value = "";
-  document.getElementById("status").value = "";
-}
+
 
 function createTableRow(formData) {
   const newRow = document.createElement('tr');
