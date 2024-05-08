@@ -128,7 +128,8 @@ async function deleteRow(lineNumber) {
     // No response data is returned
 }
 
-getData().then(() => {
-    
-     saveData();
-  });
+getData().then( (dados) =>{
+  for (const formData of dados) {
+    createTableRow(formData);
+  }
+  })

@@ -35,7 +35,6 @@ function novoForm() {
 }
 
 
-
 function gravar() {
   let inicioPrevisto = document.getElementById('inicio_previsto').value;
   let inicioCirurgia = document.getElementById('inicio_cirurgia').value;
@@ -61,8 +60,7 @@ function gravar() {
       updateTableRow(local, obj, indice);
     }
 
-    localStorage.setItem("lsItem", JSON.stringify(lsItem));
-    limparForm();
+   
   } else {
     alert("Item e Status devem estar preenchidos");
   }
@@ -102,7 +100,17 @@ function deleteTableRow(row) {
   localStorage.setItem("lsItem", JSON.stringify(lsItem));
 }
 
-async function createRowInZeroSheet(payload) {
+
+async function getData() {
+  const response = await fetch("https://api.zerosheets.com/v1/dnu");
+  const data = await response.json();
+
+  
+  return data;
+}
+
+async function createRow(payload) {
+ 
   const response = await fetch("https://api.zerosheets.com/v1/dnu", {
     method: "POST",
     body: JSON.stringify(payload)
@@ -112,60 +120,32 @@ async function createRowInZeroSheet(payload) {
   return data;
 }
 
-function updateTableRow(local, obj, indice) {
-  const row = lsItem[indice];
-  row.children[0].textContent = obj.nome;
-  row.children[1].textContent = `${obj.status} (Sala ${obj.local})`;
-  row.children[2].textContent = obj.inicioPrevisto;
-  row.children[3].textContent = obj.inicioCirurgia;
-  row.children[4].textContent = obj.fimCirurgia;
-  row.children[5].textContent = obj.saidaPrevista;
+async function patchRow(lineNumber, payload) {
+  /* Payload should be an object with the columns you want to update, example:
 
   const payload = {
-    nome: obj.nome,
-    status: obj.status,
-    local: obj.local,
-    inicioPrevisto: obj.inicioPrevisto,
-    inicioCirurgia: obj.inicioCirurgia,
-    fimCirurgia: obj.fimCirurgia,
-    saidaPrevista: obj.saidaPrevista
+      foo: "bar"
   };
-
-  patchRowInZeroSheet(row.children[1].textContent.split(' ')[1], payload).then((data) => {
-    lsItem[indice] = data;
-    localStorage.setItem("lsItem", JSON.stringify(lsItem));
-  });
-}
-
-async function patchRowInZeroSheet(lineNumber, payload) {
+  */
   const url = "https://api.zerosheets.com/v1/dnu/" + lineNumber;
   const response = await fetch(url, {
     method: "PATCH",
     body: JSON.stringify(payload)
   });
   const data = await response.json();
-
+  
+  // will return an object of the new row plus the _lineNumber
   return data;
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  lsItem.forEach((item, index) => {
-    const row = item;
-    const payload = {
-      nome: row.children[0].textContent,
-      status: row.children[1].textContent.split(' ')[0],
-      local: row.children[1].textContent.split(' ')[2],
-      inicioPrevisto: row.children[2].textContent,
-      inicioCirurgia: row.children[3].textContent,
-      fimCirurgia: row.children[4].textContent,
-      saidaPrevista: row.children[5].textContent
-    };
-
-    if (index === lsItem.length - 1) {
-      createTableRow(payload);
-    } else {
-      updateTableRow(payload.local, payload, index);
-    }
+async function deleteRow(lineNumber) {
+  const url = "https://api.zerosheets.com/v1/dnu/" + lineNumber; // lineNumber comes from the get request
+  await fetch(url, {
+      method: "DELETE"
   });
-});
-
+  // No response data is returned
+}
+getData().then( (dados) =>{
+for (const formData of dados) {
+  createTableRow(formData);
+}
+})
