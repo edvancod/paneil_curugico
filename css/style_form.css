@@ -6,29 +6,12 @@ body{
     justify-content: center;
     align-items: center;
 }
-
-.conta{
-   background-color: #fff;
-   padding: 32px;
-   border-radius: 16px;
-   width: 100%;
-   max-width: 1650px;
-
-
-}
-.first-line{
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr; 
-    grid-gap: 10px;
-    margin-bottom: 16px;
-}
-.first-line input, select{
-    height: 40px;
-}
-.seconde-line{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap:10px;
-    margin-bottom: 16px;
+.container{
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 16px;
     
+}
+h1{
+    text-align: center;
 }
