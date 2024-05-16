@@ -32,7 +32,8 @@ document.getElementById('btn').addEventListener('click', function () {
     const senha = document.getElementById('senha').value;
     const msg = document.getElementById('alerta')
     if (usuario === 'senai' && senha === 'HRT2024') {
-        window.location.href = 'painel.html';
+        window.open('painel.html', '_blank');
+
     } else {
         alert('Senha incorreta!');
         msg.style.display = 'block';
