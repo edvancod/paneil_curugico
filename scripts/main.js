@@ -13,7 +13,7 @@ document.getElementById('usuario').addEventListener('input', function (e) {
 });
 
 
-document.getElementById('form').addEventListener('submit', function (e) {
+document.getElementById('form btns').addEventListener('submit, click', function (e) {
     e.preventDefault();
     const usuario = document.getElementById('usuario').value;
     const senha = document.getElementById('senha').value;
@@ -26,6 +26,18 @@ document.getElementById('form').addEventListener('submit', function (e) {
     }
 });
 
+// document.getElementById('btn').addEventListener('click', function () {
+   
+//     const usuario = document.getElementById('usuario').value;
+//     const senha = document.getElementById('senha').value;
+//     const msg = document.getElementById('alerta')
+//     if (usuario === 'senai' && senha === 'HRT2024') {
+//         window.location.href = 'painel.html';
+//     } else {
+//         alert('Senha incorreta!');
+//         msg.style.display = 'block';
+//     }
+// });
 document.getElementById('usuario').addEventListener('click', function () {
     const msg = document.getElementById('alerta');
     msg.style.display = 'none';
