@@ -37,7 +37,7 @@ border: none;
 #usuario{
     background-color: #fff;
 }
-input[type=submit] {
+input[type=submit], .btn {
     font-weight: bold;
     letter-spacing: 3px;
     height: 50px;
@@ -46,7 +46,7 @@ input[type=submit] {
     color: #fff;
     background-color: rgb(0, 195, 255);
 }
-input[type=submit]:hover{
+input[type=submit]:hover, .btn:hover{
     background-color: rgb(0, 97, 174);
     color: #ffd700;
 }

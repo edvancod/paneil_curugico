@@ -33,12 +33,12 @@ function gravar() {
         if (indice == "") {
             createRow(obj).then((o) => {
                 lista.push(o);
-                ataulizarTabela();
+                atualizarTabela();
             });
         } else {
             patchRow(_lineNumber, obj).then((o) => {
                 lista[indice] = o;
-                ataulizarTabela();
+                atualizarTabela();
             });
         }
         console.table(lista);
@@ -49,7 +49,7 @@ function gravar() {
     }
 }
 
-function ataulizarTabela() {
+function    atualizarTabela() {
     localStorage.setItem("lista",JSON.stringify(lista));
     let tbody = '';
     if (lista.length > 0) {
@@ -106,7 +106,7 @@ function apagar() {
     if (indice != "") {
         deleteRow(_lineNumber).then(() =>{
             lista.splice(indice, 1);
-            ataulizarTabela();
+            atualizarTabela();
         });
         limparForm();
     } else {
@@ -169,5 +169,5 @@ async function deleteRow(lineNumber) {
 getData().then( (ls) => {
     lista = ls;
     console.table(ls);
-    ataulizarTabela();
+    atualizarTabela();
 } );
