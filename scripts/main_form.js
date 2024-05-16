@@ -20,7 +20,7 @@ function gravar() {
     let fimCirurgia = document.getElementById('fimCirurgia').value;
     let saidaPrevista = document.getElementById('saidaPrevista').value;
     
-    if (nome != '' && status != '' && local != '') {
+    if (nome != '' && status != '') {
         let obj = {};
         obj.nome = nome;
         obj.status = status;
@@ -45,11 +45,11 @@ function gravar() {
         
         limparForm();
     } else {
-        alert('Nome do paciente, local e Status devem estar preenchidos')
+        alert('Item e Status devem estar preenchidos')
     }
 }
 
-function atualizarTabela() {
+function    atualizarTabela() {
     localStorage.setItem("lista",JSON.stringify(lista));
     let tbody = '';
     if (lista.length > 0) {
@@ -59,7 +59,7 @@ function atualizarTabela() {
                 tbody += `<tr onclick='editar(${i})'>
                 <td>${obj.nome} </td>
                 <td class="${tpStatus[obj.status]}">${obj.status}</td>
-                <td class="${tpStatus[obj.status]}">SALA ( ${obj.local} )</td>
+                <td>${obj.local} </td>
                 <td>${obj.inicioPrevisto} </td>
                 <td>${obj.inicioCirurgia} </td>
                 <td>${obj.fimCirurgia} </td>
@@ -116,7 +116,7 @@ function apagar() {
 
 
 async function getData() {
-    const response = await fetch("https://api.zerosheets.com/v1/zgg");
+    const response = await fetch("https://api.zerosheets.com/v1/jlh");
     const data = await response.json();
 
     // will return an array of objects with the _lineNumber
@@ -131,7 +131,7 @@ async function createRow(payload) {
         column2: "bar"
     };
     */
-    const response = await fetch("https://api.zerosheets.com/v1/zgg", {
+    const response = await fetch("https://api.zerosheets.com/v1/jlh", {
         method: "POST",
         body: JSON.stringify(payload)
     });
@@ -147,7 +147,7 @@ async function patchRow(lineNumber, payload) {
         foo: "bar"
     };
     */
-    const url = "https://api.zerosheets.com/v1/zgg/" + lineNumber;
+    const url = "https://api.zerosheets.com/v1/jlh/" + lineNumber;
     const response = await fetch(url, {
         method: "PATCH",
         body: JSON.stringify(payload)
@@ -158,7 +158,7 @@ async function patchRow(lineNumber, payload) {
     return data;
 }
 async function deleteRow(lineNumber) {
-    const url = "https://api.zerosheets.com/v1/zgg/" + lineNumber; 
+    const url = "https://api.zerosheets.com/v1/jlh/" + lineNumber; 
     // lineNumber comes from the get request
     await fetch(url, {
         method: "DELETE"
